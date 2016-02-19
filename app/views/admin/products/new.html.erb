@@ -7,14 +7,17 @@
 	<%= f.input :description %>
 	<br />
 	<%= f.input :price %>
-	<br />
-	<%= f.input :kind %>
 	<br />	
 	<%= f.input :brand %>
 	<br />
-
+	<%= f.input :gender, as: :select, collection: Product::Genders %>
+	<br />
+	<%= f.input :kind, as: :select, collection: Product::Kinds %>
+	<br />
 	<%= f.input :size, as: :select, collection: Product::Sizes %>
-	<%= f.submit 'Add!', class: 'my-btn' %>
+	<br />
+	<%= f.input :sale %>
+ <%= f.submit 'Add!', class: 'my-btn' %>
 	<% end %>
 	</div>
 
