@@ -60,3 +60,15 @@ input {
   margin-left:18px;
   margin-top:5px;
 }
+
+.photo-box {
+ /*resize container */
+    width: 250x;
+    height: 250px;
+}
+
+/* resize images */
+.photo-box img {
+    width: 100%;
+    height: 100%;
+}
