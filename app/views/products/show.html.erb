@@ -1,0 +1,24 @@
+<br />
+<div class = "show-container col-xs-10 col-xs-offset-1">
+	<%= image_tag @products.photo, :class => "style_image"  %>
+	  	<div class="show-text">
+	  	<h1> <%= @products.title %></h1>
+	  	<br />
+	    <p><%= @products.description %></p>
+	    <br /> 
+	    <span class ="label label-info label-lrg">
+				<%=number_to_currency @products.price %>
+		</span>
+			<br />
+	    <div id="navcontainer">
+	    <br/>
+			<ul id="navlist">
+			<li id="active"><a href="#" id="current"></a></li>
+			<li></li>
+			<li><%= link_to @products.brand, '#' %></li>&nbsp;
+			<li><%= link_to @products.size, '#' %></li>&nbsp;
+			<li><%= link_to @products.gender, '#' %></li>&nbsp;
+			</ul>
+		</div>
+		</div>
+</div>

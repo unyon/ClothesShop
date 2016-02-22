@@ -38,7 +38,7 @@ class Product < ActiveRecord::Base
 	}
 
 	Genders = {
-		'Woman'  	=> 'Woman',
+		'Woman'  	=> 'Women',
 		'Men'  		=> 'Men',
 		'Boys'  	=> 'Boys', 
 		'Girls' 	=> 'Girls',

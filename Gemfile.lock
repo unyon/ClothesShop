@@ -10,6 +10,11 @@ GEM
       erubis (~> 2.7.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
+    activemerchant (1.57.0)
+      activesupport (>= 3.2.14, < 5.1)
+      builder (>= 2.1.2, < 4.0.0)
+      i18n (>= 0.6.9)
+      nokogiri (~> 1.4)
     activemodel (4.0.1)
       activesupport (= 4.0.1)
       builder (~> 3.1.0)
@@ -74,8 +79,11 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mini_portile2 (2.0.0)
     minitest (4.7.5)
     multi_json (1.11.2)
+    nokogiri (1.6.7.2)
+      mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
     pg (0.18.4)
     polyglot (0.3.5)
@@ -158,6 +166,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activemerchant
   bootstrap-sass (~> 3.3.5.1)
   carrierwave
   coffee-rails (~> 4.0.0)

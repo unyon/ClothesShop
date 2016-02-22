@@ -1,1 +1,16 @@
 <h1>Show</h1>
+<%= simple_form_for @products do |f| %>
+    <div class="card col-xs-10 col-xs-offset-1">
+	<div "show-img pull-left">
+	<%= image_tag f.image, class: 'img-responsive' %>
+	</div>
+  	<div class = "show-text pull-left">
+  	<h1> <%= f.title %></h1>
+  	<br />
+    <p><%= f.description %></p>
+    <br /> 
+     <p><%= f.price %></p>
+    <br /> 
+    </div>
+<% end %>
+</div>
