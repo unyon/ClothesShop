@@ -5,8 +5,8 @@ class ProductsController < ApplicationController
 	end
 
 	def show
-		@products = Product.find_by_id(params[:id])
-		return root_path if @products.blank?
+		@product = Product.find_by_id(params[:id])
+		return root_path if @product.blank?
 	end
 
 
