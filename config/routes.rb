@@ -4,12 +4,24 @@ ShopClothes::Application.routes.draw do
   root 'products#index'
   resources :admins, only: [:show]
   resources :products, only: [:index, :show]
+  match 'products/:brand' => 'products#index',:via => [:get]
+  resources :carts, only: [:show]
+  resources :line_items, only: [:create]
+  get "paypal_express/checkout"
 
   namespace :admin do
     resources :products
+    resource :categories
+    resource :sizes
+    resource :dashboard, only: [:index]
+  end
+  resources :categories do
+    resources :products, only: [:index]
   end
 
-
+  resources :sizes do
+    resources :products, only: [:index]
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

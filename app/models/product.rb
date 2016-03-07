@@ -1,52 +1,58 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id          :integer          not null, primary key
+#  title       :string(255)
+#  description :text
+#  price       :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#  —force      :string(255)
+#  brand       :string(255)
+#  gender      :string(255)
+#  condition   :string(255)
+#  sale        :boolean
+#  photo       :string(255)
+#  category_id :integer
+#  size_id     :integer
+#
+
 class Product < ActiveRecord::Base
 
 	mount_uploader :photo, PhotoUploader
 
 	belongs_to :admin
 	belongs_to :category
+	belongs_to :size
+	belongs_to :cart
 
-	Sizes = {
-		'0'      => '0',
-		'1'      => '1',
-		'2'      => '2',
-		'3'  	 => '3',
-		'4'   	 => '4',
-		'5'   	 => '5',
-		'6'    	 => '6',
-		'7'  	 => '7',
-		'8'   	 => '8',
-		'9'   	 => '9',
-		'10'     => '10',
-		'Small'  => 'Small',
-		'Medium' => 'Medium',
-		'Large'  => 'Large'
-	}
+	include RankedModel
+	ranks :row_order
 
-	Kinds = {
-		'denim'  			=> 'denim',
-		'sweaters'  		=> 'sweaters',
-		'shirts & tops'  	=> 'tops',
-		'tees & more' 		=> 'tees',
-		'jackets & coats'   => 'jackets_coats',
-		'pants & shorts'    => 'pants_shorts',
-		'dresses'   		=> 'dresses',
-		'skirts'   			=> 'skirts',
-		'swim & beachwear'  => 'swim_beachwear',
-		'shoes & boots'   	=> 'shoes_boots',
-		'bags'   			=> 'bags',
-		'jewelry'   		=> 'jewelry'
-	}
 
 	Genders = {
-		'Woman'  	=> 'Women',
+		'Women'  	=> 'Women',
 		'Men'  		=> 'Men',
 		'Boys'  	=> 'Boys', 
 		'Girls' 	=> 'Girls',
 		'Baby' 		=> 'Baby'
 	}
 
+	Conditions = {
+		'Used'  	=> 'Used',
+		'New'  		=> 'New',
+		'New with tags'  	=> 'New with tags'
+	}
 
 
+		def self.search(search)
+	  	if search
+	  		where('title iLIKE ?', "%#{search}%") || where('description iLIKE ?', "%#{search}%")
+		else	
+			all
+		end
+	end
 
 end
 

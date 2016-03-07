@@ -1,1 +1,25 @@
-<H1>eDIT</H1>
+<div class="col-xs-10 col-xs-offset-1">
+<h1>Edit Your Product</h1>
+	<%= simple_form_for @product, :url => admin_product_path(@product), 
+	:method => :PATCH do |f| %>
+		<%= f.input :title %>
+		<%= f.input :description %>
+		<%= f.input :price %>
+		<%= f.input :photo %>
+		<%= f.input :brand %>
+		<%= f.input :gender, as: :select, collection: Product::Genders %>
+		<%= f.input :condition, as: :select, collection: Product::Conditions %>
+		<div class='form_label'><%= 'Category' %></div><br />
+		<%= text_field_tag "new_category" %>&nbsp;
+		<%= f.collection_select :category_id, Category.all, :id , :kind %>
+		<br />
+		<br />
+		<div class='form_label'><%= 'Size' %></div> <br />
+		<%= text_field_tag "new_size" %>&nbsp;
+		<%= f.collection_select :size_id, Size.all, :id , :name %>
+		<br />
+		<%= f.input :sale %>
+		<br />
+		<%= f.submit 'Update', :class => 'btn btn-primary' %>
+	<% end %>
+</div>

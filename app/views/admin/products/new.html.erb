@@ -14,10 +14,14 @@
 	<br />
 	<%= f.input :gender, as: :select, collection: Product::Genders %>
 	<br />
-	<%= f.input :kind, as: :select, collection: Product::Kinds %>
+	<%= f.input :condition, as: :select, collection: Product::Conditions %>
 	<br />
-	<%= f.input :size, as: :select, collection: Product::Sizes %>
-	<br />
+	<div class='form_label'><%= 'Category' %></div><br />
+	<%= text_field_tag "new_category" %>&nbsp;
+	<%= f.collection_select :category_id, Category.all, :id , :kind %><br />
+	<br /><div class='form_label'><%= 'Size' %></div> <br />
+	<%= text_field_tag "new_size" %>&nbsp;
+	<%= f.collection_select :size_id, Size.all, :id , :name %><br />
 	<%= f.input :sale %>
  <%= f.submit 'Add!', class: 'my-btn' %>
 	<% end %>

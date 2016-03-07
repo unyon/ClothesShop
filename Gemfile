@@ -41,6 +41,11 @@ gem 'simple_form'
 gem 'carrierwave'
 
 gem 'activemerchant'
+gem 'annotate'
+gem 'ranked-model'
+
+#add jQuery UI
+gem 'jquery-ui-rails'
 
 group :developent, :test do
 	gem 'rspec-rails', '~> 3.0'
