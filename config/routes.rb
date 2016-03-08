@@ -3,7 +3,9 @@ ShopClothes::Application.routes.draw do
 
   root 'products#index'
   resources :admins, only: [:show]
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show] do
+    resources :charges, only: [:create]
+  end
   match 'products/:brand' => 'products#index',:via => [:get]
   resources :carts, only: [:show]
   resources :line_items, only: [:create]

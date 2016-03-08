@@ -25,7 +25,8 @@ class Product < ActiveRecord::Base
 	belongs_to :admin
 	belongs_to :category
 	belongs_to :size
-	belongs_to :cart
+	has_many :charges
+	has_many :orders
 
 	include RankedModel
 	ranks :row_order

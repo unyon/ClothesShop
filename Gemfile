@@ -43,6 +43,8 @@ gem 'carrierwave'
 gem 'activemerchant'
 gem 'annotate'
 gem 'ranked-model'
+gem 'stripe'
+gem 'figaro'
 
 #add jQuery UI
 gem 'jquery-ui-rails'
